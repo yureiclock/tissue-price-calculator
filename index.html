@@ -8,32 +8,33 @@
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
         :root {
-            /* 參考圖片的紫色調與中性色 */
-            --primary: #855BFA; 
-            --primary-hover: #7244eb;
-            --primary-light: #F0EFFF;
-            --bg: #F4F6F9;
+            --primary: #9483eb;           
+            --primary-hover: #7b69d6;     
+            --primary-light: #dfe0fa;     
+            --bg: #f5f6fd;                
             --card-bg: #FFFFFF;
-            --text-main: #2D3142;
+            --text-main: #4a4a68;         
             --text-muted: #9094A6;
-            --border: #E8EBF2;
-            --shadow-card: 0 15px 35px rgba(133, 91, 250, 0.05);
-            --shadow-btn: 0 8px 20px rgba(133, 91, 250, 0.25);
+            --border: #e0e2f0;            
+            --shadow-card: 0 15px 35px rgba(148, 131, 235, 0.08); 
+            --shadow-btn: 0 8px 20px rgba(148, 131, 235, 0.2);
             
-            /* 圓角設定 */
             --radius-card: 24px;
-            --radius-input: 16px;
+            --radius-input: 12px; 
             --radius-btn: 30px;
         }
 
         body {
-            font-family: 'Nunito', "PingFang TC", "Helvetica Neue", sans-serif;
+            font-family: 'Nunito', "Microsoft JhengHei", "PingFang TC", sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             padding: 30px 20px;
             max-width: 1000px;
             margin: 0 auto;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 95vh;
         }
 
         h1 {
@@ -46,9 +47,9 @@
 
         h2 {
             font-size: 18px;
-            color: var(--text-main);
+            color: var(--primary); 
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             font-weight: 700;
         }
 
@@ -56,6 +57,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 25px;
+            flex-grow: 1;
         }
 
         .card {
@@ -64,7 +66,7 @@
             border-radius: var(--radius-card);
             box-shadow: var(--shadow-card);
             flex: 1 1 350px;
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.8);
         }
 
         .form-group {
@@ -80,13 +82,13 @@
             letter-spacing: 0.5px;
         }
 
-        input[type="text"], input[type="number"], select {
+        input[type="text"], input[type="number"], select, textarea {
             width: 100%;
             padding: 14px 18px;
             border: 2px solid var(--border);
             border-radius: var(--radius-input);
             box-sizing: border-box;
-            background-color: #FAFBFF;
+            background-color: #fcfcff;
             font-size: 14px;
             color: var(--text-main);
             transition: all 0.3s ease;
@@ -94,10 +96,15 @@
             font-family: inherit;
         }
 
-        input:focus, select:focus {
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        input:focus, select:focus, textarea:focus {
             border-color: var(--primary);
             background-color: #FFF;
-            box-shadow: 0 0 0 4px var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(148, 131, 235, 0.15);
         }
 
         .row {
@@ -108,7 +115,14 @@
             flex: 1;
         }
 
-        /* 按鈕樣式 */
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border);
+            margin: 25px 0;
+            opacity: 1;
+        }
+
         button {
             background-color: var(--primary);
             color: #FFF;
@@ -127,65 +141,31 @@
         button:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(133, 91, 250, 0.35);
+            box-shadow: 0 10px 25px rgba(148, 131, 235, 0.35);
         }
 
         button.secondary {
-            background-color: var(--primary-light);
+            background-color: white;
             color: var(--primary);
             box-shadow: none;
             margin-bottom: 20px;
-            border: 2px dashed var(--primary);
-        }
-
-        button.secondary:hover {
-            background-color: #E2DDFF;
-            transform: none;
+            border: 2px dashed var(--primary-light);
+            font-weight: 600;
         }
 
         button.remove-btn {
             background-color: #FFF;
-            color: #FF5E5E;
-            width: 40px;
-            height: 40px;
+            color: #ff9e9e; 
+            width: 32px;
+            height: 32px;
             padding: 0;
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(255, 94, 94, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid #FFE5E5;
         }
 
-        button.remove-btn:hover {
-            background-color: #FF5E5E;
-            color: #FFF;
-            box-shadow: 0 6px 15px rgba(255, 94, 94, 0.3);
-        }
-
-        /* 動態折扣區塊 */
-        .discount-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-            align-items: center;
-        }
-        
-        .discount-row select {
-            flex: 2;
-        }
-        .discount-row input {
-            flex: 1;
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: var(--border);
-            margin: 25px 0;
-        }
-
-        /* 表格樣式 */
         .table-container {
             overflow-x: auto;
         }
@@ -194,7 +174,6 @@
             width: 100%;
             border-collapse: separate;
             border-spacing: 0 10px;
-            margin-top: 5px;
         }
 
         th {
@@ -202,48 +181,74 @@
             padding: 0 15px 10px 15px;
             color: var(--text-muted);
             font-size: 13px;
-            font-weight: 600;
-            border-bottom: 1px solid var(--border);
         }
 
         td {
             padding: 16px 15px;
-            background: #FAFBFF;
+            background: #fcfcff;
             font-size: 14px;
-            font-weight: 600;
-            color: var(--text-main);
+            vertical-align: middle;
         }
 
-        /* 讓表格列有圓角 */
-        tbody tr td:first-child {
-            border-top-left-radius: var(--radius-input);
-            border-bottom-left-radius: var(--radius-input);
-        }
-        tbody tr td:last-child {
-            border-top-right-radius: var(--radius-input);
-            border-bottom-right-radius: var(--radius-input);
-        }
+        tbody tr td:first-child { border-radius: 12px 0 0 12px; }
+        tbody tr td:last-child { border-radius: 0 12px 12px 0; }
 
-        /* 最便宜的高亮標示 */
-        .cheapest td {
-            background-color: var(--primary-light);
+        .clickable-name {
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .clickable-name:hover {
             color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .cheapest td {
+            background-color: var(--primary);
+            color: white;
+        }
+        .cheapest .clickable-name:hover {
+            color: white;
+            opacity: 0.8;
         }
 
         .badge {
-            background-color: var(--primary);
-            color: white;
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
             padding: 4px 10px;
-            border-radius: 12px;
+            border-radius: 8px;
             font-size: 11px;
-            margin-left: 8px;
             font-weight: 700;
+            margin-top: 6px;
         }
-        
+
         .crown {
-            color: #FFB020;
-            margin-left: 5px;
-            font-size: 14px;
+            display: inline-block;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border: 1px solid white;
+            border-radius: 20px;
+            margin-top: 6px;
+            margin-left: 6px;
+        }
+
+        .note-text {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -276,7 +281,7 @@
 
             <div class="row">
                 <div class="form-group">
-                    <label>一袋有幾包？</label>
+                    <label>一串有幾包？</label>
                     <input type="number" id="packCount" min="1" value="1">
                 </div>
                 <div class="form-group">
@@ -286,38 +291,39 @@
             </div>
 
             <div class="form-group">
+                <label>備註 (規格或賣場)</label>
+                <textarea id="itemNote" placeholder="例如：好市多購買、三層厚手..."></textarea>
+            </div>
+
+            <div class="form-group">
                 <label>運費 (元)</label>
-                <input type="number" id="shippingFee" min="0" value="0" placeholder="免運請填0">
+                <input type="number" id="shippingFee" min="0" value="0">
             </div>
 
             <hr>
-            
-            <label style="margin-bottom: 15px;">額外優惠折扣 (可疊加)</label>
-            <div id="dynamicDiscounts">
-                </div>
-            <button type="button" class="secondary" onclick="addDiscountField()">+ 新增優惠方式</button>
 
+            <label style="margin-bottom: 15px;">額外優惠折扣 / 贈品</label>
+            <div id="dynamicDiscounts"></div>
+            <button type="button" class="secondary" onclick="addDiscountField()">+ 新增優惠方式</button>
             <button type="button" onclick="calculateAndSave()">計算並加入比價</button>
         </div>
 
         <div class="card" style="flex: 2 1 450px;">
-            <h2>比價歷史紀錄</h2>
+            <h2>比價紀錄</h2>
             <div class="table-container">
                 <table id="historyTable">
                     <thead>
                         <tr>
-                            <th>商品名稱</th>
+                            <th>商品資訊 (點擊編輯)</th>
                             <th>總花費</th>
                             <th>總抽數</th>
                             <th>每抽單價</th>
-                            <th style="text-align: center;">操作</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="5" style="text-align: center; color: var(--text-muted); background: transparent; font-weight: 400;">
-                                尚未加入任何計算結果。
-                            </td>
+                            <td colspan="5" style="text-align: center; color: var(--text-muted); background: transparent;">尚未加入紀錄。</td>
                         </tr>
                     </tbody>
                 </table>
@@ -325,28 +331,110 @@
         </div>
     </div>
 
+    <div class="footer">
+        yurei_clock <span style="margin:0 10px; opacity:0.4">|</span> tissue price calculator <span style="margin:0 10px; opacity:0.4">|</span> Generated with Gemini AI <span style="margin:0 10px; opacity:0.4">|</span> v1.0
+    </div>
+
     <script>
         let historyData = [];
 
-        // 新增優惠欄位
-        function addDiscountField() {
+        // 修改後的動態折扣/贈品生成函式
+        function addDiscountField(val = '', type = 'minus_amount', giftPacks = '', giftPulls = '') {
             const container = document.getElementById('dynamicDiscounts');
             const row = document.createElement('div');
-            row.className = 'discount-row';
-            row.innerHTML = `
-                <select class="discount-type">
-                    <option value="minus_amount">現金折抵 (元)</option>
-                    <option value="discount_percent">打折 (%數，如8折填80)</option>
-                    <option value="cashback_percent">%數回饋 (等同扣成本)</option>
-                    <option value="points">紅利折抵 (點數=元)</option>
-                </select>
-                <input type="number" class="discount-value" min="0" placeholder="輸入數值">
-                <button class="remove-btn" title="移除" onclick="this.parentElement.remove()">✕</button>
-            `;
+            row.className = 'discount-row-container';
+            row.style.marginBottom = '12px';
+            
+            const renderContent = (currentType) => {
+                if (currentType === 'gift_extra') {
+                    return `
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <select style="flex:1.5" class="discount-type" onchange="updateRowType(this)">
+                                <option value="minus_amount">現金折抵 (元)</option>
+                                <option value="discount_percent">打折 (%數)</option>
+                                <option value="cashback_percent">%數回饋</option>
+                                <option value="gift_extra" selected>贈送額外包數</option>
+                            </select>
+                            <input style="flex:1" type="number" class="gift-packs" placeholder="幾包" value="${giftPacks}">
+                            <input style="flex:1" type="number" class="gift-pulls" placeholder="幾抽" value="${giftPulls}">
+                            <button class="remove-btn" onclick="this.parentElement.parentElement.remove()">✕</button>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <select style="flex:2" class="discount-type" onchange="updateRowType(this)">
+                                <option value="minus_amount" ${currentType === 'minus_amount' ? 'selected' : ''}>現金折抵 (元)</option>
+                                <option value="discount_percent" ${currentType === 'discount_percent' ? 'selected' : ''}>打折 (%數)</option>
+                                <option value="cashback_percent" ${currentType === 'cashback_percent' ? 'selected' : ''}>%數回饋</option>
+                                <option value="gift_extra">贈送額外包數</option>
+                            </select>
+                            <input style="flex:1" type="number" class="discount-value" placeholder="數值" value="${val}">
+                            <button class="remove-btn" onclick="this.parentElement.parentElement.remove()">✕</button>
+                        </div>
+                    `;
+                }
+            };
+
+            row.innerHTML = renderContent(type);
             container.appendChild(row);
         }
 
-        // 計算邏輯
+        // 當使用者切換優惠類型時，切換輸入框模式
+        function updateRowType(selectEl) {
+            const container = selectEl.closest('.discount-row-container');
+            const type = selectEl.value;
+            if (type === 'gift_extra') {
+                container.innerHTML = `
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <select style="flex:1.5" class="discount-type" onchange="updateRowType(this)">
+                            <option value="minus_amount">現金折抵 (元)</option>
+                            <option value="discount_percent">打折 (%數)</option>
+                            <option value="cashback_percent">%數回饋</option>
+                            <option value="gift_extra" selected>贈送額外包數</option>
+                        </select>
+                        <input style="flex:1" type="number" class="gift-packs" placeholder="幾包">
+                        <input style="flex:1" type="number" class="gift-pulls" placeholder="幾抽">
+                        <button class="remove-btn" onclick="this.parentElement.parentElement.remove()">✕</button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <select style="flex:2" class="discount-type" onchange="updateRowType(this)">
+                            <option value="minus_amount" ${type === 'minus_amount' ? 'selected' : ''}>現金折抵 (元)</option>
+                            <option value="discount_percent" ${type === 'discount_percent' ? 'selected' : ''}>打折 (%數)</option>
+                            <option value="cashback_percent" ${type === 'cashback_percent' ? 'selected' : ''}>%數回饋</option>
+                            <option value="gift_extra">贈送額外包數</option>
+                        </select>
+                        <input style="flex:1" type="number" class="discount-value" placeholder="數值">
+                        <button class="remove-btn" onclick="this.parentElement.parentElement.remove()">✕</button>
+                    </div>
+                `;
+            }
+        }
+
+        function editRecord(id) {
+            const item = historyData.find(i => i.id === id);
+            if (!item) return;
+
+            document.getElementById('itemName').value = item.rawName;
+            document.getElementById('itemPrice').value = item.rawPrice;
+            document.getElementById('basePromo').value = item.rawPromo;
+            document.getElementById('packCount').value = item.rawPacks;
+            document.getElementById('pullCount').value = item.rawPulls;
+            document.getElementById('itemNote').value = item.note;
+            document.getElementById('shippingFee').value = item.rawShipping;
+
+            document.getElementById('dynamicDiscounts').innerHTML = '';
+            item.rawDiscounts.forEach(d => {
+                addDiscountField(d.val, d.type, d.giftPacks, d.giftPulls);
+            });
+
+            deleteRecord(id);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function calculateAndSave() {
             const name = document.getElementById('itemName').value || '未命名衛生紙';
             const price = parseFloat(document.getElementById('itemPrice').value) || 0;
@@ -354,103 +442,89 @@
             const packs = parseInt(document.getElementById('packCount').value) || 1;
             const pulls = parseInt(document.getElementById('pullCount').value) || 1;
             const shipping = parseFloat(document.getElementById('shippingFee').value) || 0;
+            const note = document.getElementById('itemNote').value || '';
 
-            if (price === 0 || packs === 0 || pulls === 0) {
-                alert("請填寫正確的售價、包數與抽數！");
-                return;
-            }
+            if (price === 0) return alert("請填寫售價！");
 
             let quantityMultiplier = 1;
             let cost = price;
+            let extraGiftPulls = 0;
 
-            // 處理基本優惠邏輯
-            if (promo === 'bogo') {
-                quantityMultiplier = 2;
-            } else if (promo === 'second_half') {
-                quantityMultiplier = 2;
-                cost = price * 1.5;
-            }
+            if (promo === 'bogo') quantityMultiplier = 2;
+            else if (promo === 'second_half') { quantityMultiplier = 2; cost = price * 1.5; }
 
-            // 處理動態額外優惠
-            const discountRows = document.querySelectorAll('.discount-row');
-            discountRows.forEach(row => {
+            const rawDiscounts = [];
+            document.querySelectorAll('.discount-row-container').forEach(row => {
                 const type = row.querySelector('.discount-type').value;
-                const val = parseFloat(row.querySelector('.discount-value').value) || 0;
-
-                if (val > 0) {
-                    if (type === 'minus_amount') {
-                        cost -= val;
-                    } else if (type === 'discount_percent') {
-                        cost = cost * (val / 100);
-                    } else if (type === 'cashback_percent') {
-                        cost -= cost * (val / 100);
-                    } else if (type === 'points') {
-                        cost -= val;
-                    }
+                
+                if (type === 'gift_extra') {
+                    const gPacks = parseInt(row.querySelector('.gift-packs').value) || 0;
+                    const gPulls = parseInt(row.querySelector('.gift-pulls').value) || 0;
+                    extraGiftPulls += (gPacks * gPulls);
+                    rawDiscounts.push({ type, giftPacks: gPacks, giftPulls: gPulls });
+                } else {
+                    const val = parseFloat(row.querySelector('.discount-value').value) || 0;
+                    rawDiscounts.push({ type, val });
+                    if (type === 'minus_amount') cost -= val;
+                    else if (type === 'discount_percent') cost *= (val / 100);
+                    else if (type === 'cashback_percent') cost -= cost * (val / 100);
                 }
             });
 
             cost += shipping;
-            if (cost < 0) cost = 0; 
-
-            const totalPulls = quantityMultiplier * packs * pulls;
+            const totalPulls = (quantityMultiplier * packs * pulls) + extraGiftPulls;
             const pricePerPull = cost / totalPulls;
 
             historyData.push({
                 id: Date.now(),
-                name: name,
-                totalCost: cost,
-                totalPulls: totalPulls,
-                pricePerPull: pricePerPull,
-                promoName: promo === 'bogo' ? '買一送一' : (promo === 'second_half' ? '第二件半價' : '')
+                name, cost, totalPulls, pricePerPull, note,
+                promoName: promo === 'bogo' ? '買一送一' : (promo === 'second_half' ? '第二件半價' : ''),
+                rawName: name, rawPrice: price, rawPromo: promo, 
+                rawPacks: packs, rawPulls: pulls, rawShipping: shipping,
+                rawDiscounts: rawDiscounts
             });
 
-            // 清空輸入框
             document.getElementById('itemName').value = '';
             document.getElementById('itemPrice').value = '0';
-            
+            document.getElementById('itemNote').value = '';
+            document.getElementById('dynamicDiscounts').innerHTML = '';
             renderTable();
         }
 
-        // 渲染表格與比價
         function renderTable() {
             const tbody = document.querySelector('#historyTable tbody');
             tbody.innerHTML = '';
-
             if (historyData.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted); background: transparent; font-weight: 400;">尚未加入任何計算結果。</td></tr>`;
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); background: transparent;">尚未加入紀錄。</td></tr>';
                 return;
             }
 
             const minPrice = Math.min(...historyData.map(item => item.pricePerPull));
 
             historyData.forEach(item => {
-                const tr = document.createElement('tr');
                 const isCheapest = item.pricePerPull === minPrice && historyData.length > 1;
-                
-                if (isCheapest) {
-                    tr.className = 'cheapest';
-                }
-
-                let promoBadge = item.promoName ? `<span class="badge">${item.promoName}</span>` : '';
-                let crown = isCheapest ? `<span class="crown">👑 最划算</span>` : '';
+                const tr = document.createElement('tr');
+                if (isCheapest) tr.className = 'cheapest';
 
                 tr.innerHTML = `
-                    <td>${item.name} ${promoBadge} <br> ${crown}</td>
-                    <td>$${item.totalCost.toFixed(2)}</td>
-                    <td>${item.totalPulls.toLocaleString()} 抽</td>
-                    <td>$${item.pricePerPull.toFixed(4)}</td>
-                    <td style="text-align: center;">
-                        <button class="remove-btn" onclick="deleteRecord(${item.id})" style="margin: 0 auto;">✕</button>
+                    <td>
+                        <div class="clickable-name" onclick="editRecord(${item.id})" title="點擊編輯資料" style="font-weight:700">
+                            ${item.name}
+                        </div>
+                        ${item.note ? `<div class="note-text">${item.note}</div>` : ''}
+                        <div>${item.promoName ? `<span class="badge" style="${isCheapest ? 'background:rgba(255,255,255,0.2);color:white' : ''}">${item.promoName}</span>` : ''} ${isCheapest ? '<span class="crown">👑 最划算</span>' : ''}</div>
                     </td>
+                    <td>$${item.cost.toFixed(1)}</td>
+                    <td>${item.totalPulls.toLocaleString()} 抽</td>
+                    <td style="font-weight:700">$${item.pricePerPull.toFixed(4)}</td>
+                    <td><button class="remove-btn" onclick="deleteRecord(${item.id})">✕</button></td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
-        // 刪除紀錄
         function deleteRecord(id) {
-            historyData = historyData.filter(item => item.id !== id);
+            historyData = historyData.filter(i => i.id !== id);
             renderTable();
         }
     </script>
